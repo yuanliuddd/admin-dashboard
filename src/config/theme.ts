@@ -1,5 +1,6 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
+import { PaletteMode } from "@mui/material";
 
 ///////////////////////////////////////////////////////////
 //  Color
@@ -127,13 +128,13 @@ export const tokens = (mode: string) => {
 //  mui theme setting
 ///////////////////////////////////////////////////////////
 
-const fontFamil
+const fontFamilies: string = ["Source Sans Pro", "sans-serif"].join(",");
 
-export const themeSetting = (mode: string) => {
+export const themeSetting = (mode: PaletteMode) => {
   const colors = tokens(mode);
   return {
     palette: {
-      mode: mode,
+      mode,
       ...(mode === "dark"
         ? {
             primary: {
@@ -169,32 +170,57 @@ export const themeSetting = (mode: string) => {
           }),
     },
     typography: {
-      fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+      fontFamily: fontFamilies,
       fontSize: 12,
       h1: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+        fontFamily: fontFamilies,
         fontSize: 40,
       },
       h2: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+        fontFamily: fontFamilies,
         fontSize: 32,
       },
       h3: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+        fontFamily: fontFamilies,
         fontSize: 24,
       },
       h4: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+        fontFamily: fontFamilies,
         fontSize: 20,
       },
       h5: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+        fontFamily: fontFamilies,
         fontSize: 16,
       },
       h6: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+        fontFamily: fontFamilies,
         fontSize: 14,
       },
     },
   };
 };
+
+///////////////////////////////////////////////////////////
+// Context for Color Mode
+///////////////////////////////////////////////////////////
+
+export const ColorModeContext = createContext({
+  toggleColorMode: () => {},
+});
+
+export const useMode = () => {
+  const [mode, setMode] = useState<PaletteMode>("dark");
+
+  const colorMode = useMemo(
+    () => ({
+      toggleColorMode: () =>
+        setMode((prev) => (prev === "light" ? "dark" : "light")),
+    }),
+    []
+  );
+
+  const theme = useMemo(() => createTheme(themeSetting(mode)), [mode])
+  
+  return [theme, colorMode]; 
+};
+
