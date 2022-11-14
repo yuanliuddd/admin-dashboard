@@ -125,7 +125,7 @@ export const tokens = (mode: string) => {
 };
 
 ///////////////////////////////////////////////////////////
-//  mui theme setting
+//  mui theme : Palette Color & typography setting
 ///////////////////////////////////////////////////////////
 
 const fontFamilies: string = ["Source Sans Pro", "sans-serif"].join(",");
