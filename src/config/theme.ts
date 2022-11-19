@@ -133,7 +133,7 @@ export const tokens = (mode: PaletteMode) => {
 //  mui theme : Palette Color & typography setting
 ///////////////////////////////////////////////////////////
 
-const fontFamilies: string = ["Source Sans Pro", "sans-serif"].join(",");
+const fontFamilies = ["Source Sans Pro", "sans-serif"].join(",");
 
 export const themeSetting = (mode: PaletteMode) => {
   const colors = tokens(mode);
