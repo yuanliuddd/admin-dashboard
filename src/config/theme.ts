@@ -1,12 +1,13 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 import { PaletteMode } from "@mui/material";
+import { Theme } from "@mui/system";
 
 ///////////////////////////////////////////////////////////
 //  Color
 ///////////////////////////////////////////////////////////
 
-export const tokens = (mode: string) => {
+export const tokens = (mode: PaletteMode) => {
   return mode === "dark"
     ? {
         grey: {
@@ -124,6 +125,10 @@ export const tokens = (mode: string) => {
       };
 };
 
+
+
+
+
 ///////////////////////////////////////////////////////////
 //  mui theme : Palette Color & typography setting
 ///////////////////////////////////////////////////////////
@@ -200,18 +205,32 @@ export const themeSetting = (mode: PaletteMode) => {
   };
 };
 
+
+
+
+
+
 ///////////////////////////////////////////////////////////
 // Context for Color Mode
 ///////////////////////////////////////////////////////////
+type changeMode = { toggleColorMode: () => void };
 
-export const ColorModeContext = createContext({
+export const ColorModeContext: React.Context<changeMode> = createContext({
   toggleColorMode: () => {},
 });
 
-export const useMode = () => {
+
+
+
+
+////////////////////////////////////////////////
+//          useMode Hook
+///////////////////////////////////////////////
+
+export const useMode = (): [Theme, changeMode] => {
   const [mode, setMode] = useState<PaletteMode>("dark");
 
-  const colorMode = useMemo(
+  const colorMode: changeMode = useMemo(
     () => ({
       toggleColorMode: () =>
         setMode((prev) => (prev === "light" ? "dark" : "light")),
@@ -219,8 +238,7 @@ export const useMode = () => {
     []
   );
 
-  const theme = useMemo(() => createTheme(themeSetting(mode)), [mode])
-  
-  return [theme, colorMode]; 
-};
+  const theme = useMemo(() => createTheme(themeSetting(mode)), [mode]);
 
+  return [theme, colorMode];
+};

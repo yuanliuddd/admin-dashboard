@@ -1,4 +1,5 @@
 import { ThemeProvider, CssBaseline } from "@mui/material";
+import React from "react";
 
 import { ColorModeContext, useMode } from "./config/theme";
 
