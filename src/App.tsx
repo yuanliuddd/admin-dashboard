@@ -1,6 +1,6 @@
 import { ColorModeContext, useMode } from "./config/theme";
 import TopBar from "./scenes/global/Topbar";
-import SideBar from "./scenes/global/SideBar";
+import Sidebar from './scenes/global/Sidebar'
 import Dashboard from "./scenes/dashboard";
 import Team from "./scenes/team";
 import Invoices from "./scenes/invoice";
@@ -17,7 +17,7 @@ import Calendar from "./scenes/calendar";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { ProSidebarProvider } from "react-pro-sidebar";
+// import { ProSidebarProvider } from "react-pro-sidebar";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -27,9 +27,9 @@ function App() {
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <ProSidebarProvider>
+
             <div className="app">
-              <SideBar />
+              <Sidebar />
               <main className="content">
                 <TopBar />
                 <Routes>
@@ -47,7 +47,7 @@ function App() {
                 </Routes>
               </main>
             </div>
-          </ProSidebarProvider>
+
         </ThemeProvider>
       </ColorModeContext.Provider>
     </>
