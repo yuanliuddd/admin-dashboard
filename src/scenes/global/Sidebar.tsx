@@ -26,23 +26,21 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 
-interface itemType {
+interface itemTypes {
   title: string;
-  icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
-    muiName: string;
-  } & React.ReactNode;
+  icon: React.ReactNode;
   linkTo: string;
   selectedPage: string;
   setSelectedPage: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Item = <itemType,>({
+const Item = ({
   title,
   icon,
   linkTo,
   selectedPage,
   setSelectedPage,
-}) => {
+}: itemTypes) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -165,6 +163,21 @@ function Sidebar() {
                 </>
               )}
             </MenuItem>
+
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Data
+            </Typography>
+            <Item
+              title="Manage Team"
+              icon={<PeopleOutlinedIcon />}
+              linkTo="/team"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
           </Box>
         </Menu>
       </ProSidebar>
