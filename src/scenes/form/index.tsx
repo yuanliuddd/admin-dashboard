@@ -1,9 +1,17 @@
-import React from 'react'
+import { Box } from "@mui/material";
+import { Formik, useFormik } from "formik";
+import Header from "../../components/Header";
 
-function index() {
+function Form() {
+  const 
   return (
-    <div>index</div>
-  )
+    <Box m="20px">
+      <Header title="Create User" subTitle="Create a New User Profile"></Header>
+      <Box>
+
+      </Box>
+    </Box>
+  );
 }
 
-export default index
+export default Form;
