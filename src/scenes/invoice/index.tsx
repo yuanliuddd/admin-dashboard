@@ -16,9 +16,19 @@ function Invoices() {
     },
     { field: "name", headerName: "Name", flex: 1 },
     { field: "phone", headerName: "Phone Number ", editable: true, flex: 1 },
-    { field: "email", headerName: "Email", editable: true, flex: 1 },
-    { field: "cost", headerName: "Cost", editable: true, flex: .5 },
-    { field: "date", headerName: "Date", editable: true, flex: .5 },
+    { field: "email", headerName: "Email", editable: true, flex: 1.5 },
+    {
+      field: "cost",
+      headerName: "Cost",
+      editable: true,
+      flex: 0.5,
+      renderCell: (params) => (
+        <Typography
+          color={colors.greenAccent[500]}
+        >{`€${params.row.cost}`}</Typography>
+      ),
+    },
+    { field: "date", headerName: "Date", editable: true, flex: 0.5 },
   ];
 
   return (
@@ -29,7 +39,7 @@ function Invoices() {
         height="75vh"
         sx={{
           "& .MuiDataGrid-root": { border: 0 },
-          "& .MuiDataGrid-cell": { borderBottom: 0 },
+          "& .MuiDataGrid-cell": { border: 0 },
           "& .name-column-cell": { color: colors.greenAccent[300] },
           "& .MuiDataGrid-row": { border: 0 },
           "& .MuiDataGrid-columnHeader": {
@@ -42,7 +52,9 @@ function Invoices() {
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
             backgroundColor: colors.blueAccent[700],
-            "& .PrivateSwitchBase-input": { backgroundColor: `${colors.greenAccent[400]} !important` },
+            "& .PrivateSwitchBase-input": {
+              backgroundColor: `${colors.greenAccent[400]} !important`,
+            },
           },
         }}
       >
