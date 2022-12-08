@@ -37,6 +37,7 @@ const Team = () => {
       field: "access",
       headerName: "Access Level",
       editable: true,
+      flex: 1,
       renderCell: ({ row: { access } }) => {
         // render React.node to Cell , access row object for data
         return (
@@ -76,6 +77,18 @@ const Team = () => {
           "& .MuiDataGrid-root": { border: 0 },
           "& .MuiDataGrid-cell": { borderBottom: 0 },
           "& .name-column-cell": { color: colors.greenAccent[300] },
+          "& .MuiDataGrid-row": { border: 0 },
+          "& .MuiDataGrid-columnHeader": {
+            backgroundColor: colors.blueAccent[700],
+            border: "none",
+          },
+          "& .MuiDataGrid-vitualScroller": {
+            backgroundColor: colors.primary[400],
+          },
+          "& .MuiDataGrid-footerContainer": {
+            borderTop: "none",
+            backgroundColor: colors.blueAccent[700],
+          },
         }}
       >
         <DataGrid columns={columns} rows={mockDataTeam}></DataGrid>
