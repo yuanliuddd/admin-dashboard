@@ -52,9 +52,9 @@ function Invoices() {
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
             backgroundColor: colors.blueAccent[700],
-            "& .PrivateSwitchBase-input": {
-              backgroundColor: `${colors.greenAccent[400]} !important`,
-            },
+          },
+          "& .MuiCheckbox-root": {
+            color: `${colors.greenAccent[100]} !important`,
           },
         }}
       >
