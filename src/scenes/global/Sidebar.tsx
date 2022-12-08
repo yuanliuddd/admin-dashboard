@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import {
-  Box,
-  IconButton,
-  SvgIconTypeMap,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../config/theme";
 import "react-pro-sidebar/dist/css/styles.css";
@@ -24,7 +18,6 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
 
 interface itemTypes {
   title: string;
@@ -153,16 +146,13 @@ function Sidebar() {
           {/* ///////////////////////////////////////////////////////////////////////////// */}
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <MenuItem
-              onClick={() => <Link to="/" />}
-              icon={!isCollapsed && <HomeOutlinedIcon />}
-            >
-              {!isCollapsed && (
-                <>
-                  <Typography>DashoBoard</Typography>
-                </>
-              )}
-            </MenuItem>
+            <Item
+              title="DashBoard"
+              icon={<HomeOutlinedIcon />}
+              linkTo="/"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
             <Typography
               variant="h6"
               color={colors.grey[300]}
