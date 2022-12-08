@@ -53,8 +53,8 @@ function Contacts() {
           "& .MuiDataGrid-virtualScroller": {
             borderBottom: 0,
           },
-          "& .MuiDataGrid-cell": { borderBottom: 0 },
-          "& .MuiDataGrid-root ": { borderBottom: 0 },
+          "& .MuiDataGrid-cell": { border: 0 },
+          "& .MuiDataGrid-root ": { border: 0 },
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
             color: `${colors.grey[100]} !important`,
           },
