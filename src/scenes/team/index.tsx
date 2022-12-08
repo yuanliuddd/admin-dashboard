@@ -31,6 +31,7 @@ const Team = () => {
       editable: true,
       headerAlign: "left",
       align: "left",
+      type:'number'
     },
     { field: "phone", headerName: "Phone Number ", editable: true, flex: 1 },
     {
@@ -69,7 +70,7 @@ const Team = () => {
 
   return (
     <Box m="20px">
-      <Header title="TEAM" subTitle="Managing the Team Members" />
+      <Header title="Team" subTitle="Managing the Team Members" />
       <Box
         m="40px 0 0 0"
         height="75vh"
