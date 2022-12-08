@@ -163,7 +163,6 @@ function Sidebar() {
                 </>
               )}
             </MenuItem>
-
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -175,6 +174,83 @@ function Sidebar() {
               title="Manage Team"
               icon={<PeopleOutlinedIcon />}
               linkTo="/team"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Item
+              title="Contacts Information"
+              icon={<ContactsOutlinedIcon />}
+              linkTo="/contacts"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Item
+              title="Invoice Balances"
+              icon={<ReceiptOutlinedIcon />}
+              linkTo="/invoices"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Pages
+            </Typography>
+            <Item
+              title="Profile Form"
+              icon={<PersonOutlinedIcon />}
+              linkTo="/form"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Item
+              title="Calendar"
+              icon={<CalendarTodayOutlinedIcon />}
+              linkTo="/calendar"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Item
+              title="FAQ"
+              icon={<HelpOutlineOutlinedIcon />}
+              linkTo="/faq"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Charts
+            </Typography>
+            <Item
+              title="Bar Chart"
+              icon={<BarChartOutlinedIcon />}
+              linkTo="/bar"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Item
+              title="Pie Chart"
+              icon={<PieChartOutlineOutlinedIcon />}
+              linkTo="/pie"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Item
+              title="Line Chart"
+              icon={<TimelineOutlinedIcon />}
+              linkTo="/faq"
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Item
+              title="Geography Chart"
+              icon={<MapOutlinedIcon />}
+              linkTo="/geography"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
