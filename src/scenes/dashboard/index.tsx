@@ -1,9 +1,15 @@
-import React from 'react'
+import { Box, Typography, useTheme, IconButton } from "@mui/material";
 
-function index() {
+import { tokens } from "../../config/theme";
+
+function Index() {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   return (
-    <div>index</div>
-  )
+    <div>
+      
+    </div>
+  );
 }
 
-export default index
+export default Index;
