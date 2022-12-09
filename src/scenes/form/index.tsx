@@ -26,7 +26,8 @@ const submithandler = (values: formValuesType) => {
   console.log(values);
 };
 
-const frenchPhoneRegEXP =/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/;
+const frenchPhoneRegEXP =
+  /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/;
 const validationSchema = yup.object().shape({
   firstName: yup
     .string()
@@ -79,8 +80,9 @@ function Form() {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.firstName}
-                  error={!!errors.firstName && touched.firstName}
-                  helperText={errors.firstName && touched.firstName}
+                  error={!!touched.firstName && !!errors.firstName}
+                  helperText={touched.firstName && errors.firstName}
+                  // For helperText , touched has to be 1st then errors , otherwise there is no error text
                   sx={{ gridColumn: "span 2" }}
                 ></TextField>
                 <TextField
@@ -92,8 +94,8 @@ function Form() {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.lastName}
-                  error={!!errors.lastName && touched.lastName}
-                  helperText={errors.lastName && touched.lastName}
+                  error={!!touched.lastName && !!errors.lastName}
+                  helperText={touched.lastName && errors.lastName}
                   sx={{ gridColumn: "span 2" }}
                 ></TextField>
                 <TextField
@@ -106,7 +108,7 @@ function Form() {
                   onChange={handleChange}
                   value={values.email}
                   error={!!errors.email && touched.email}
-                  helperText={errors.email && touched.email}
+                  helperText={touched.email && errors.email}
                   sx={{ gridColumn: "span 4" }}
                 ></TextField>
                 <TextField
@@ -119,7 +121,7 @@ function Form() {
                   onChange={handleChange}
                   value={values.contact}
                   error={!!errors.contact && touched.contact}
-                  helperText={errors.contact && touched.contact}
+                  helperText={touched.contact && errors.contact}
                   sx={{ gridColumn: "span 4" }}
                 ></TextField>
                 <TextField
@@ -132,7 +134,7 @@ function Form() {
                   onChange={handleChange}
                   value={values.address1}
                   error={!!errors.address1 && touched.address1}
-                  helperText={errors.address1 && touched.address1}
+                  helperText={touched.address1 && errors.address1}
                   sx={{ gridColumn: "span 4" }}
                 ></TextField>
                 <TextField
@@ -145,9 +147,13 @@ function Form() {
                   onChange={handleChange}
                   value={values.address2}
                   error={!!errors.address2 && touched.address2}
-                  helperText={errors.address2 && touched.address2}
+                  helperText={touched.address2 && errors.address2}
                   sx={{ gridColumn: "span 4" }}
                 ></TextField>
+              </Box>
+
+              <Box display="flex" justifyContent="end" mt='20px'>
+                <Button variant="contained" type="submit" color="secondary">Create New User</Button>
               </Box>
             </form>
           )}
