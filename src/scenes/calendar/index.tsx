@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "../../components/Header";
 import { tokens } from "../../config/theme";
 ///////////////// Full Calendar
-import FullCalendar, { formatDate } from "@fullcalendar/react";
+import FullCalendar, { formatDate, EventApi} from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -20,12 +20,11 @@ import {
 const Caldendar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [currentEvents, setCurrentEvents] = useState([]);
+  const [currentEvents, setCurrentEvents] = useState<EventApi[]>([]);
 
-  const dateClickHandler = (selected): void => {
+  const dateClickHandler = (selected:any) => {
     const title = prompt("please enter a new title for your event ");
     const calendarApi = selected.view.calendar;
-    calendarApi.unselected();
 
     if (title) {
       calendarApi.addEvent({
@@ -36,20 +35,20 @@ const Caldendar = () => {
         allDay: selected.allDay,
       });
     }
+    calendarApi.unselect();
   };
 
-  const eventClickHandler = (selected): void => {
+  const eventClickHandler = (selected:any) => {
     if (window.confirm(`Delete ${selected.event.title}?`)) {
-      selected.event.removed();
+      selected.event.remove();
     }
   };
-
   return (
     <Box m="20px">
       <Header title="Calendar" subTitle="Interactive Calendar View" />
       <Box display="flex" justifyContent="space-between">
         {/* ///////////////////////////////////// */}
-        {/* Calendar List SideBar  */}
+        {/* Event List SideBar  */}
         {/* ///////////////////////////////////// */}
         <Box
           flex="1 1 20%"
@@ -73,7 +72,7 @@ const Caldendar = () => {
                     primary={event.title}
                     secondary={
                       <Typography>
-                        {formatDate(event.start, {
+                        {formatDate(`${event.start}`, {
                           year: "numeric",
                           month: "short",
                           day: "numeric",
@@ -86,7 +85,45 @@ const Caldendar = () => {
             ))}
           </List>
         </Box>
-        <Box></Box>
+        {/* /////////////////////////////////////////// */}
+        {/* Calendar */}
+        {/* /////////////////////////////////////////// */}
+        <Box flex="1 1 100%" ml="15px">
+          <FullCalendar
+            height="75vh"
+            plugins={[
+              dayGridPlugin,
+              interactionPlugin,
+              timeGridPlugin,
+              listPlugin,
+            ]}
+            headerToolbar={{
+              left: "prev,next today",
+              center: "title",
+              right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
+            }}
+            initialView="dayGridMonth"
+            editable={true}
+            selectable={true}
+            selectMirror={true}
+            dayMaxEvents={true}
+            select={dateClickHandler}
+            eventClick={eventClickHandler}
+            eventsSet={(events) => setCurrentEvents(events)}
+            initialEvents={[
+              {
+                id: "12315",
+                title: "All-day event",
+                date: "2022-12-14",
+              },
+              {
+                id: "5123",
+                title: "Timed event",
+                date: "2022-12-28",
+              },
+            ]}
+          />
+        </Box>
       </Box>
     </Box>
   );
