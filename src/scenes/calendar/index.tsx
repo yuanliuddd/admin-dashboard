@@ -21,7 +21,7 @@ const Caldendar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [currentEvents, setCurrentEvents] = useState<EventApi[]>([]);
-
+  
   const dateClickHandler = (selected:any) => {
     const title = prompt("please enter a new title for your event ");
     const calendarApi = selected.view.calendar;
@@ -59,7 +59,7 @@ const Caldendar = () => {
           <Typography variant="h5">Events</Typography>
           <List>
             {currentEvents.map((event) => (
-              <List>
+              <List key={event.id}>
                 <ListItem
                   key={event.id}
                   sx={{
@@ -72,7 +72,7 @@ const Caldendar = () => {
                     primary={event.title}
                     secondary={
                       <Typography>
-                        {formatDate(`${event.start}`, {
+                        {formatDate(`${event.startStr}`, {
                           year: "numeric",
                           month: "short",
                           day: "numeric",
