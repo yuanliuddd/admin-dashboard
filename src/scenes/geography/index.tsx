@@ -1,7 +1,16 @@
-import React from 'react'
+import { Box } from "@mui/material";
+import GeographyChart from "../../components/GeographyChart";
+import Header from "../../components/Header";
 
-export default function index() {
+export default function Geography() {
   return (
-    <div>index</div>
-  )
+    <Box>
+      <Box m="20px">
+        <Header title="Geography Chart" subTitle="Geography View  " />
+        <Box height="75vh">
+          <GeographyChart />
+        </Box>
+      </Box>
+    </Box>
+  );
 }

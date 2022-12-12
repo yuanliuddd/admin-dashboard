@@ -1,10 +1,9 @@
 import { ResponsivePie } from "@nivo/pie";
 import { mockPieData as data} from "../data/mockData";
-import { dashboard } from "../config/types";
 import { useTheme } from "@mui/material";
 import { tokens } from "../config/theme";
 
-function PieChart({ isDashboard = false}: dashboard) {
+function PieChart({ isDashboard = false}) {
    const theme = useTheme();
    const colors = tokens(theme.palette.mode);
 

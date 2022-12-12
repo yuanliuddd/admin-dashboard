@@ -1,11 +1,10 @@
 import { useTheme } from "@mui/material";
 import { mockLineData as data} from "../data/mockData";
-import { dashboard } from "../config/types";
 import { tokens } from "../config/theme";
 import { ResponsiveLine } from "@nivo/line";
 
 
-function LineChart({ isDashboard = false }: dashboard) {
+function LineChart({ isDashboard = false }) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
