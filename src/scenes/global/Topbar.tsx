@@ -1,4 +1,4 @@
-import { Box, IconButton, useTheme } from "@mui/material";
+import { Box, IconButton, useTheme, Tooltip } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../config/theme";
 import { InputBase } from "@mui/material";
@@ -8,6 +8,7 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
   const theme = useTheme();
@@ -22,9 +23,11 @@ export default function Topbar() {
 
       <Box display="flex" bgcolor={colors.primary[400]} borderRadius="3px">
         <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-        <IconButton type="button" sx={{ p: 1 }}>
-          <SearchIcon />
-        </IconButton>
+        <Tooltip title="Search history">
+          <IconButton type="button" sx={{ p: 1 }}>
+            <SearchIcon />
+          </IconButton>
+        </Tooltip>
       </Box>
       {/* ////////////////////////////////////////////////////////////// */}
       {/*//////////////// Search Bar Icons Section  /////////////////////*/}
@@ -33,19 +36,29 @@ export default function Topbar() {
       <Box>
         <IconButton onClick={() => colorMode.toggleColorMode()}>
           {theme.palette.mode === "dark" ? (
-            <LightModeOutlinedIcon />
+            <Tooltip title="Light Mode ">
+              <LightModeOutlinedIcon />
+            </Tooltip>
           ) : (
-            <DarkModeOutlinedIcon />
+            <Tooltip title="Dark Mode ">
+              <DarkModeOutlinedIcon />
+            </Tooltip>
           )}
         </IconButton>
         <IconButton>
-          <NotificationsOutlinedIcon />
+          <Tooltip title="Notification">
+            <NotificationsOutlinedIcon />
+          </Tooltip>
         </IconButton>
         <IconButton>
-          <SettingsOutlinedIcon />
+          <Tooltip title="Setting">
+            <SettingsOutlinedIcon />
+          </Tooltip>
         </IconButton>
         <IconButton>
-          <PersonOutlinedIcon />
+          <Tooltip title="Profile">
+            <PersonOutlinedIcon />
+          </Tooltip>
         </IconButton>
       </Box>
     </Box>

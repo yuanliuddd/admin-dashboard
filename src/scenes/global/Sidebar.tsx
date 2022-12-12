@@ -4,6 +4,7 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../config/theme";
 import "react-pro-sidebar/dist/css/styles.css";
+import Tooltip from "@mui/material/Tooltip";
 
 //////////////////Icons Collections
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -99,14 +100,19 @@ function Sidebar() {
                   alignItems: "center",
                 }}
               >
+                <Tooltip title='Account Status'>
+
                 <Typography variant="h3">Admin</Typography>
-                <IconButton
-                  onClick={() => {
-                    setIsCollapsed(!isCollapsed);
-                  }}
-                >
-                  <MenuOutlinedIcon />
-                </IconButton>
+                </Tooltip>
+                <Tooltip title='Accordion Menu'>
+                  <IconButton
+                    onClick={() => {
+                      setIsCollapsed(!isCollapsed);
+                    }}
+                  >
+                    <MenuOutlinedIcon />
+                  </IconButton>
+                </Tooltip>
               </Box>
             )}
           </MenuItem>
