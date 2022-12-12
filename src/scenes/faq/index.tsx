@@ -40,7 +40,7 @@ export default function FAQ() {
             id="panel2a-header"
           >
             <Typography color={colors.greenAccent[300]} variant="h5">
-              Contact Us for Paid Version
+              Contact Info 
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
