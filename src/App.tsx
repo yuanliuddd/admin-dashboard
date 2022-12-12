@@ -1,6 +1,6 @@
 import { ColorModeContext, useMode } from "./config/theme";
-import TopBar from "./scenes/global/Topbar";
-import Sidebar from './scenes/global/Sidebar'
+import TopBar from "./scenes/Layout/Topbar";
+import Sidebar from "./scenes/Layout/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Team from "./scenes/team";
 import Invoices from "./scenes/invoice";
@@ -12,11 +12,10 @@ import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import Calendar from "./scenes/calendar";
-
+import { Layout } from "./scenes/Layout/Layout";
 //////////////////// Libiaries Import
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
-
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -27,26 +26,24 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
 
-            <div className="app">
-              <Sidebar />
-              <main className="content">
-                <TopBar />
-                <Routes>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/team" element={<Team />} />
-                  <Route path="/contacts" element={<Contacts />} />
-                  <Route path="/invoices" element={<Invoices />} />
-                  <Route path="/form" element={<Form />} />
-                  <Route path="/bar" element={<Bar />} />
-                  <Route path="/pie" element={<Pie />} />
-                  <Route path="/line" element={<Line />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/calendar" element={<Calendar />} />
-                  <Route path="/geography" element={<Geography />} />
-                </Routes>
-              </main>
-            </div>
-
+          <div className="app">
+            <Routes>
+              <Route element={<Layout />}>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/contacts" element={<Contacts />} />
+                <Route path="/invoices" element={<Invoices />} />
+                <Route path="/form" element={<Form />} />
+                <Route path="/bar" element={<Bar />} />
+                <Route path="/pie" element={<Pie />} />
+                <Route path="/line" element={<Line />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/geography" element={<Geography />} />
+              </Route>
+            </Routes>
+            {/* </main> */}
+          </div>
         </ThemeProvider>
       </ColorModeContext.Provider>
     </>
