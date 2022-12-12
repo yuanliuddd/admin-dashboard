@@ -2,12 +2,10 @@ import { ResponsiveBar } from "@nivo/bar";
 import { mockBarData } from "../data/mockData";
 import { useTheme } from "@mui/material";
 import { tokens } from "../config/theme";
+import { dashboard } from "../config/types";
 
-type dashboard = {
-  isDashboard:boolean
-}
 
-function BarChart({ isDashboard }: dashboard) {
+function BarChart({ isDashboard =false }: dashboard) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
