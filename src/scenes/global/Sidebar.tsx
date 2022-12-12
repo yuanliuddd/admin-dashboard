@@ -233,7 +233,7 @@ function Sidebar() {
             <Item
               title="Line Chart"
               icon={<TimelineOutlinedIcon />}
-              linkTo="/faq"
+              linkTo="/line"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />

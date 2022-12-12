@@ -54,8 +54,8 @@ export default function FAQ() {
             aria-controls="panel3a-content"
             id="panel3a-header"
           >
-            <Typography color={colors.greenAccent[300]} variant="h5">
-              Disabled Your Dashboard Account
+            <Typography color={colors.redAccent[300]} variant="h5">
+            Danger Zone :  Disabled Your Dashboard Account
             </Typography>
           </AccordionSummary>
           <AccordionDetails>

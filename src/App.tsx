@@ -15,9 +15,8 @@ import Calendar from "./scenes/calendar";
 
 //////////////////// Libiaries Import
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import React from "react";
 import { Route, Routes } from "react-router-dom";
-// import { ProSidebarProvider } from "react-pro-sidebar";
+
 
 function App() {
   const [theme, colorMode] = useMode();

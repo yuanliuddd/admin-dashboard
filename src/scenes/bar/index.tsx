@@ -1,7 +1,14 @@
-import React from 'react'
+import { Box } from "@mui/material";
+import BarChart from "../../components/BarChart";
+import Header from "../../components/Header";
 
-export default function index() {
+export default function Bar() {
   return (
-    <div>bar</div>
-  )
+    <Box m="20px">
+      <Header title="Bar Chart" subTitle="Country-Food Data " />
+      <Box height='75vh'>
+        <BarChart isDashboard={false} />
+      </Box>
+    </Box>
+  );
 }
