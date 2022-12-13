@@ -25,7 +25,6 @@ function App() {
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-
           <div className="app">
             <Routes>
               <Route element={<Layout />}>
@@ -42,7 +41,6 @@ function App() {
                 <Route path="/geography" element={<Geography />} />
               </Route>
             </Routes>
-            {/* </main> */}
           </div>
         </ThemeProvider>
       </ColorModeContext.Provider>
