@@ -1,6 +1,6 @@
 import { Stack, Box, useTheme, CircularProgress } from "@mui/material";
-import { useState } from "react";
-import { tokens } from "../config/theme";
+
+
 
 type IprogressType = {
   progress: number;
