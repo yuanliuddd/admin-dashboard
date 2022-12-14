@@ -52,7 +52,7 @@ function Dashboard() {
         display="grid"
         gridTemplateColumns="repeat(12,1fr)"
         gridAutoRows="140px"
-        gap="20px"
+        gap="12px"
       >
         {/* Row 1  */}
         <Box
@@ -190,7 +190,7 @@ function Dashboard() {
               display="flex"
               justifyContent="space-between"
               alignItems="center"
-              key={transaction.txId}
+              key={transaction.txId + i}
               borderBottom={`4px solid ${colors.primary[500]}`}
               p="15px"
             >
@@ -225,33 +225,50 @@ function Dashboard() {
         {/* Row 3  */}
         <Box
           display="flex"
+          flexDirection="column"
           justifyContent="center"
           alignItems="center"
           gridColumn="span 4"
           gridRow="span 2"
-          m="20px"
+          bgcolor={colors.primary[400]}
+          p="30px"
         >
-          <PieChart />
+          <Typography variant="h5" fontWeight={600}>
+            Campaign
+          </Typography>
+
+          <PieChart isDashboard={true} />
+        </Box>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          gridColumn="span 4"
+          gridRow="span 2"
+          bgcolor={colors.primary[400]}
+          p="30px"
+        >
+          <Typography variant="h5" fontWeight={600}>
+            Sales Qty
+          </Typography>
+
+          <BarChart isDashboard={true} />
         </Box>
         <Box
           display="flex"
           justifyContent="center"
+          flexDirection="column"
           alignItems="center"
+          bgcolor={colors.primary[400]}
           gridColumn="span 4"
           gridRow="span 2"
-          m="20px"
+          p="30px"
         >
-          <BarChart />
-        </Box>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          gridColumn="span 4"
-          gridRow="span 2"
-          m="20px"
-        >
-          <GeographyChart />
+          <Typography variant="h5" fontWeight={600}>
+            Country view Sales Traffic 
+          </Typography>
+          <GeographyChart isDashboard={true} />
         </Box>
       </Box>
     </Box>
