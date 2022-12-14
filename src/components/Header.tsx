@@ -1,5 +1,4 @@
-import { Box, Typography, IconButton, useTheme } from "@mui/material";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
+import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "../config/theme";
 
 type headerType = {
@@ -26,12 +25,6 @@ const Header = ({ title, subTitle }: headerType) => {
           {subTitle}
         </Typography>
       </Box>
-      {/* <Box>
-        <IconButton disableRipple={true} size="large">
-          <DownloadOutlinedIcon />
-          <Typography>Download Reports</Typography>
-        </IconButton>
-      </Box> */}
     </>
   );
 };
