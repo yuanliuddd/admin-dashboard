@@ -1,8 +1,9 @@
 #  Introduction
-This Project is made with MUI Library , Typescript and React.js . 
-For practicing my Front-end skills and also for a Portfolio purpose. 
+This Project is mainly made with MUI Library , Typescript and React.js . 
+- For practicing my Front-end skills and also for a Portfolio purpose. 
+- Using Libraries : Formik , Nivo Chart , FullCalendar , MUI 
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
