@@ -2,6 +2,8 @@ import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 import { PaletteMode } from "@mui/material";
 import { Theme } from "@mui/system";
+// import { CssBaseline } from "@mui/material";
+
 
 ///////////////////////////////////////////////////////////
 //  Color
@@ -202,6 +204,22 @@ export const themeSetting = (mode: PaletteMode) => {
         fontSize: 14,
       },
     },
+    // overrides: {
+    //   CssBaseline: {
+    //     "@global": {
+    //       "* ::-webkit-scrollbar": {
+    //         width: "0",
+    //       },
+    //       "*::-webkit-scrollbar-track": {
+    //         background: "blue",
+    //       },
+    //       "*::-webkit-scrollbar-thumb": {
+    //         background: "transparent",
+    //         borderRadius: "0px",
+    //       },
+    //     },
+    //   },
+    // },
   };
 };
 
