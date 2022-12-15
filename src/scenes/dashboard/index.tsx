@@ -81,10 +81,10 @@ function Dashboard() {
           justifyContent="center"
         >
           <StateBox
-            title="12,361"
-            subTitle="Emails Sent"
+            title="161"
+            subTitle="Network"
             progress={75}
-            increase="+14%"
+            increase="-15%"
             icon={
               <PointOfSaleIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -100,10 +100,10 @@ function Dashboard() {
           justifyContent="center"
         >
           <StateBox
-            title="12,361"
-            subTitle="Emails Sent"
+            title="2,361"
+            subTitle="CRM"
             progress={75}
-            increase="+14%"
+            increase="+24%"
             icon={
               <PersonAddIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -119,10 +119,10 @@ function Dashboard() {
           justifyContent="center"
         >
           <StateBox
-            title="12,361"
-            subTitle="Emails Sent"
+            title="1,190"
+            subTitle="Traffic"
             progress={75}
-            increase="+14%"
+            increase="+4%"
             icon={
               <TrafficIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -176,7 +176,7 @@ function Dashboard() {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`1px solid ${colors.primary[500]}`}
             color={colors.grey[100]}
             p="15px"
           >
@@ -187,17 +187,18 @@ function Dashboard() {
           {mockTransactions.map((transaction, i) => (
             <Box
               display="flex"
-              justifyContent="space-between"
+              justifyContent="space-evenly"
               alignItems="center"
               key={transaction.txId + i}
-              borderBottom={`4px solid ${colors.primary[500]}`}
+              borderBottom={`1px solid ${colors.primary[500]}`}
               p="15px"
             >
-              <Box>
+              <Box flex="1">
                 <Typography
                   color={colors.greenAccent[500]}
                   variant="h5"
                   fontWeight={600}
+                  flex="auto"
                 >
                   {transaction.txId}
                 </Typography>
@@ -209,12 +210,10 @@ function Dashboard() {
                   {transaction.user}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
-              <Box
-                bgcolor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
-              >
+              <Box color={colors.grey[100]} flex="1" textAlign="center">
+                {transaction.date}
+              </Box>
+              <Box flex="1" textAlign="end" color={colors.greenAccent[500]}>
                 {transaction.cost}€
               </Box>
             </Box>
@@ -265,7 +264,7 @@ function Dashboard() {
           p="30px"
         >
           <Typography variant="h5" fontWeight={600}>
-            Country view Sales Traffic 
+            Country view Sales Traffic
           </Typography>
           <GeographyChart isDashboard={true} />
         </Box>

@@ -43,7 +43,7 @@ const StateBox = ({ title, subTitle, icon, progress, increase }: IStateBox) => {
           <Typography
             variant="h5"
             fontStyle="italic"
-            sx={{ color: colors.grey[600], margin: "10px" }}
+            sx={{ color: colors.grey[100], margin: "10px" }}
           >
             {increase}
           </Typography>
