@@ -6,7 +6,6 @@ import StateBox from "../../components/StateBox";
 import BarChart from "../../components/BarChart";
 import PieChart from "../../components/PieChart";
 import GeographyChart from "../../components/GeographyChart";
-import ProgressCircle from "../../components/ProgressCircle";
 
 ///////////// Mui ////////////////////////////////////
 import { Box, Typography, useTheme, Button, IconButton } from "@mui/material";

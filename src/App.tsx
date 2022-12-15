@@ -1,6 +1,4 @@
 import { ColorModeContext, useMode } from "./config/theme";
-import TopBar from "./scenes/Layout/Topbar";
-import Sidebar from "./scenes/Layout/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Team from "./scenes/team";
 import Invoices from "./scenes/invoice";
