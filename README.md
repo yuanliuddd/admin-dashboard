@@ -2,6 +2,9 @@
 This Project is mainly made with MUI Library , Typescript and React.js . 
 - For practicing my Front-end skills and also for a Portfolio purpose. 
 - Using Libraries : Formik , Nivo Chart , FullCalendar , MUI 
+- Deployed on Netlify 
+
+# [Demo](https://admin-dashboard-yuanliuddd-github.netlify.app/)
 
 ## Getting Started with Create React App
 
